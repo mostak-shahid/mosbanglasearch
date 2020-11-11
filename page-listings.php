@@ -83,7 +83,7 @@ do_action( 'action_avobe_content', $page_details );
                     <div class="col-lg-6">
                     
                         <div class="listing-search mb-30"><?php echo do_shortcode('[business-search-form]') ?></div>
-                        <div class="listing-social mb-30">                            
+                        <div class="listing-categories mb-30">                            
                             <h4 class="listimg-title mb-30">Additional Categories</h4>
                             <?php                            
                             global $wpdb;
