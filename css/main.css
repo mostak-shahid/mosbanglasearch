@@ -7,6 +7,7 @@ a:visited,a:hover,a:active,a:focus{text-decoration:none}
 .alignleft {float: left; margin: 0.5em 1em 0.5em 0; }
 .alignright {float: right; margin: 0.5em 0 0.5em 1em; }
 .aligncenter {display: block; margin-left: auto; margin-right: auto; }
+.mb-15{margin-bottom: 15px;}
 .mb-30{margin-bottom: 30px;}
 .font-weight-700{font-weight: 700}
 .font-weight-900{font-weight: 900}
@@ -116,6 +117,12 @@ section{position:relative}
 #page.listing-content [data-wpcr3-content] .wpcr3_show_btn {margin-left: 20px;margin-top: 10px}
 #page.listing-content [data-wpcr3-content] td,#page.listing-content [data-wpcr3-content] .wpcr3_reviews_holder{padding: 5px 20px;}
 #page.listing-content [data-wpcr3-content] .text-input {width: 100%;}
+#page.listing-content .listing-category {background-color: #f9f9f9;padding: 12px 20px;}
+#page.listing-content .listing-category .job-category{font-size: 30px;font-weight: 700;margin-bottom: 0;}
+#page.listing-content .listing-print,#page.listing-content .listing-print .btn-print{font-size: 14px;font-weight: 700;}
+#page.listing-content .listing-print .float-left{line-height: 16px;padding: 12px 0;}
+#page.listing-content .listing-print .btn-print{color: #000000;border-color: #000000;line-height: 16px;padding: 11px 12px;}
+#page.listing-content .listing-title{font-size: 24px; font-weight: 700}
 
 #page.listing-archive .listings-wrapper .listing-archive-title{font-size: 18px;margin-bottom: 20px;}
 #page.listing-archive .listings-wrapper .listing-archive-desc{font-size: 12px;color: #919191;margin-bottom: 20px;}
@@ -123,8 +130,8 @@ section{position:relative}
 #page.listing-archive .listings-wrapper .listing-archive-contact{display: table;width: 100%;background-color: #f7f7f7;margin-top: 10px;}
 #page.listing-archive .listings-wrapper .listing-archive-contact .phone{display: table-cell;font-size: 14px;text-align: center;padding-top: 13px;padding-bottom: 13px;border-right:1px solid rgba(255,255,255,.5)}
 #page.listing-archive .listings-wrapper .listing-archive-contact .address{display: table-cell;font-size: 12px;text-align: center;padding-top: 7px;padding-bottom: 7px;border-left:1px solid rgba(0,0,0,.5)}
-#page.listing-archive .btn-listing-archive-category{background-color: #efefef;font-size: 18px;margin-right: 5px;}
-#page.listing-archive .btn-listing-archive-category:hover{color: #ffffff;}
+#page .btn-listing-archive-category{background-color: #efefef;font-size: 18px;margin-right: 5px;}
+#page .btn-listing-archive-category:hover{color: #ffffff;}
 
 
 .main-grid {display:grid; grid-template-columns:repeat(12, 1fr); margin:0 auto; width:100%} 
