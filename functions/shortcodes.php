@@ -41,6 +41,16 @@ function business_search_formfunc( $atts = array(), $content = '' ) {
 	$atts = shortcode_atts( array(
 		'slug' => 'listings',
 	), $atts, 'business-search-form' );
+    global $wpdb;
+    //SELECT DISTINCT `meta_value` FROM `bs_wp_postmeta` WHERE `meta_key`='business_category'
+    $results = $wpdb->get_results( "SELECT DISTINCT meta_value FROM {$wpdb->prefix}postmeta WHERE meta_key='business_category'", OBJECT );
+    if ($results) {
+        $html .= '<datalist id="categories">';
+        foreach($results as $row){
+            $html .= '<option value="'.$row->meta_value.'">';
+        }
+        $html .= '</datalist>';
+    }
     $html .='<form class="listing-search-form" action="'.home_url($atts['slug']).'" method="get">';
         $html .= '<div class="form-row">';
             $html .= '<div class="col">';
@@ -48,7 +58,7 @@ function business_search_formfunc( $atts = array(), $content = '' ) {
                     $html .= '<div class="input-group-prepend">';
                         $html .= '<span class="input-group-text" id="basic-addon1">Find</span>';
                     $html .= '</div>';
-                    $html .= '<input name="category" type="text" class="form-control" placeholder="Category" value="'.$category.'">';
+                    $html .= '<input name="category" type="text" class="form-control" placeholder="Category" value="'.$category.'" list="categories">';
                 $html .= '</div>';
             $html .= '</div>';
             $html .= '<div class="col">';

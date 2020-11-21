@@ -32,15 +32,17 @@ do_action( 'action_avobe_business', $page_details );
                         <div class="row">                        
                         <?php $n = 1;?>
                         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                            <?php $business_logo = get_field('business_logo');?>
 							<?php
 							if ($n == 2) $animateClass = 'delay-lg-quarter-s';
 							elseif ($n == 3) $animateClass = 'delay-lg-half-s';
+							elseif ($n == 4) $animateClass = 'delay-lg-one-thard-s';
 							else  $animateClass = '';
 							?>
-                            <div class="col-lg-4 mb-30 wow fadeInLeft <?php echo $animateClass ?>">
+                            <div class="col-lg-3 col-md-6 mb-30 wow fadeInLeft <?php echo $animateClass ?>">
                                 <div class="wrap position-relative">
-                                    <?php if(has_post_thumbnail()) : ?>
-                                        <div class="img-listing-wrapper"><img src="<?php echo aq_resize(get_the_post_thumbnail_url(),350,250,true) ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing" width="350" height="250"></div>
+                                    <?php if($business_logo) : ?>
+                                        <div class="img-listing-wrapper"><img src="<?php echo aq_resize(wp_get_attachment_url($business_logo),255,180,true) ?>" alt="<?php echo get_post_meta( $business_logo, '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing" width="255" height="180"></div>
                                     <?php endif; ?>
                                     <h4 class="title-listing text-theme"><?php echo get_the_title() ?></h4>
                                     <div class="address-listing"><?php echo get_field('business_address')?></div>

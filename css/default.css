@@ -2,6 +2,7 @@
 .bg-theme,.pagination .page-numbers.current,#section-blog .blogs-wrapper .wrap:hover .link-blog .btn-blog,#page .btn-listing-archive-category:hover{background-color:#009d4c!important}
 .text-theme{color:#009d4c!important}
 .border-theme,.pagination .page-numbers.current{border-color:#009d4c!important}
+.bg-theme-dark{background-color: #007f3d!important}
 /*255,206,0*/
 .bg-theme-2,#section-resourcec .slides-wrapper .wrap:hover{background-color:#ffce00!important}
 .text-theme-2{color:#ffce00!important}

@@ -113,6 +113,10 @@ else $page_id = get_the_ID();
 						if (is_shop()) :
 							$title = get_the_title(get_option('woocommerce_shop_page_id'));
 						endif;
+                    elseif(is_single() && get_post_type() == 'listing') :
+                        $title = get_field('business_category');
+                    elseif(is_category()) :
+                        $title = single_cat_title('', false);
 					else :
 						$title = get_the_title();
 					endif; 

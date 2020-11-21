@@ -42,6 +42,9 @@ jQuery(document).ready(function($){
         loop:true,
         nav:true,
         dots: false,
+        autoplay:true,
+        autoplayTimeout:1000,
+        autoplayHoverPause:true,
         responsive:{
             0:{
                 items:1
@@ -63,6 +66,12 @@ jQuery(document).ready(function($){
         loop:true,
         nav:true,
         dots: false,
+        lazyLoad: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
         responsive:{
             0:{
                 items:1
@@ -79,6 +88,12 @@ jQuery(document).ready(function($){
         loop:true,
         nav:true,
         dots: false,
+        lazyLoad: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
         responsive:{
             0:{
                 items:1
@@ -91,10 +106,30 @@ jQuery(document).ready(function($){
             }
         }
     });
+    $('.sale-owl-carousel').owlCarousel({
+        loop:true,
+        nav:false,
+        dots: true,
+        items:1,
+        lazyLoad: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+    });
     $("[data-fancybox]").fancybox({
     	loop : true,
     });
 });
+function printDiv(divId) {
+    var printContents = document.getElementById(divId).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    // document.body.style.marginTop="-45px";
+    window.print();
+    document.body.innerHTML = originalContents;
+}
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
     'use strict';

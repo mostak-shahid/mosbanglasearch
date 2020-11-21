@@ -41,9 +41,12 @@ do_action( 'action_avobe_content', $page_details );
                         $query = new WP_Query( $args );                        
                         if ( $query->have_posts() ) : ?>
                             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                               <?php $business_logo = get_field('business_logo');?>
                                 <div class="wow fadeInLeft mb-30">
                                     <div class="media position-relative">
-                                        <img src="<?php echo aq_resize(get_the_post_thumbnail_url(),160,115,true) ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing mr-3" width="160" height="115">
+                                        <?php if ($business_logo): ?>
+                                            <img src="<?php echo aq_resize(wp_get_attachment_url($business_logo),160,115,true) ?>" alt="<?php echo get_post_meta( $business_logo, '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing mr-3" width="160" height="115">
+                                        <?php endif;?>
                                         <div class="media-body">
                                             <h5 class="mt-0 listing-archive-title text-theme font-weight-700"><?php echo get_the_title() ?></h5>
                                             <div class="listing-archive-desc font-weight-700"><?php echo wp_trim_words( get_the_content(), 5, '...' ) ?></div>

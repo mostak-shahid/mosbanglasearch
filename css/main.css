@@ -130,8 +130,10 @@ section{position:relative}
 #page.listing-archive .listings-wrapper .listing-archive-contact{display: table;width: 100%;background-color: #f7f7f7;margin-top: 10px;}
 #page.listing-archive .listings-wrapper .listing-archive-contact .phone{display: table-cell;font-size: 14px;text-align: center;padding-top: 13px;padding-bottom: 13px;border-right:1px solid rgba(255,255,255,.5)}
 #page.listing-archive .listings-wrapper .listing-archive-contact .address{display: table-cell;font-size: 12px;text-align: center;padding-top: 7px;padding-bottom: 7px;border-left:1px solid rgba(0,0,0,.5)}
-#page .btn-listing-archive-category{background-color: #efefef;font-size: 18px;margin-right: 5px;}
+#page .btn-listing-archive-category{background-color: #efefef;font-size: 18px;margin-right: 5px;margin-bottom: 5px;}
 #page .btn-listing-archive-category:hover{color: #ffffff;}
+#page .btn-jon-details{font-weight: 700;font-size: 14px;padding-top: 14px;padding-bottom: 14px;}
+#page .job-unit + .job-unit{border-top: 1px solid rgba(0,0,0,.1);padding-top: 30px;}
 
 
 .main-grid {display:grid; grid-template-columns:repeat(12, 1fr); margin:0 auto; width:100%} 

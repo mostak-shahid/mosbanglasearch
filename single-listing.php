@@ -16,10 +16,8 @@ do_action( 'action_avobe_content', $page_details );
 			<?php do_action( 'action_before_content', $page_details  ); ?>
                 <div class="row">
                     <div class="col-lg-6">
-                        <?php if ( have_posts() ) :?> 
-                            <?php if (has_post_thumbnail()) : ?>  
-                                <img src="<?php echo aq_resize(get_the_post_thumbnail_url(),540,400,true) ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); ?>" class="img-fluid img-listing mb-30" width="540" height="400">
-                            <?php endif?>                         
+                        <?php if ( have_posts() ) :?>                         
+                            <h2><?php echo get_the_title() ?></h2>              
                             <?php the_content() ?>
                             <?php 
                             $business_gallery = get_post_meta(get_the_id(),'business_gallery',true);
@@ -59,7 +57,7 @@ do_action( 'action_avobe_content', $page_details );
                                 <div class="listing-phone mb-3"><i class="fa fa-phone text-theme"></i> <a class="text-theme font-weight-900" href="tel:<?php echo $business_phone ?>"><?php echo $business_phone ?></a></div>
                             <?php endif; ?>
                             <?php if ($business_website) : ?>
-                                <div class="listing-website mb-3"><i class="fa fa-globe text-theme"></i> <a href="tel:<?php echo $business_website ?>" target="_blank"><?php echo $business_website ?></a></div>
+                                <div class="listing-website mb-3"><i class="fa fa-globe text-theme"></i> <a href="<?php echo $business_website ?>" target="_blank"><?php echo $business_website ?></a></div>
                             <?php endif; ?>
                         </div>
                         <div class="listing-search mb-30"><?php echo do_shortcode('[business-search-form]') ?></div>
@@ -111,11 +109,12 @@ $sbusinesscontent = $mosbanglasearch_options['sections-sbusiness-content'];
                     if ($n == 2) $animateClass = 'delay-lg-quarter-s';
                     elseif ($n == 3) $animateClass = 'delay-lg-half-s';
                     elseif ($n == 4) $animateClass = 'delay-three-quarter-s';
-                    else  $animateClass = '';?>                  
+                    else  $animateClass = '';?>  
+                    <?php $business_logo = get_field('business_logo');?>                
                     <div class="col-lg-3 mb-30 wow fadeInLeft <?php echo $animateClass ?>">
                         <div class="wrap position-relative">
                             <?php if(has_post_thumbnail()) : ?>
-                                <div class="img-listing-wrapper"><img src="<?php echo aq_resize(get_the_post_thumbnail_url(),255,130,true) ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing" width="350" height="250"></div>
+                                <div class="img-listing-wrapper"><img src="<?php echo aq_resize(wp_get_attachment_url($business_logo),350,250,true) ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ?>" class="img-fluid img-listing" width="350" height="250"></div>
                             <?php endif; ?>
                             <h4 class="title-listing text-theme"><?php echo get_the_title() ?></h4>
                             <div class="address-listing"><?php echo get_field('business_address')?></div>

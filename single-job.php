@@ -18,18 +18,20 @@ do_action( 'action_avobe_content', $page_details );
                     <div class="col-lg-6">
                         <?php if ( have_posts() ) :?> 
                             <div class="listing-category mb-30"><h4 class="job-category"><?php echo get_field('job_category') ?></h4></div>                       
-                            <div class="listing-print d-table w-100 mb-30"><div class="float-left">Posted by..on <?php echo date('d/m/Y') ?> in <span class="text-theme"><?php echo get_field('job_category') ?></span></div><div class="float-right"><a href="" class="btn btn-print"><i class="fa fa-print"></i> Print</a></div></div>  
-                            <h2 class="listing-title text-theme mb-30"><?php echo get_the_title()?></h2> 
-                            <div class="listing-address mb-30"><i class="fa fa-map-marker text-theme"></i> <?php echo get_field('job_address') ?></div>                    
-                            <?php the_content() ?>
-                            <div class="listing-meta">
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Employment Type :</span><span class="float-right"><?php echo get_field('post_type') ?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Email :</span><span class="float-right"><?php echo get_field('job_email')?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Phone :</span><span class="float-right"><?php echo get_field('job_phone')?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Salary :</span><span class="float-right"><?php echo get_field('job_salary')?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Start Date :</span><span class="float-right"><?php echo get_field('job_start_date')?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Experienced Contact :</span><span class="float-right"><?php echo get_field('job_experience')?></span></div>
-                                <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Reference :</span><span class="float-right"><?php echo get_field('job_reference')?></span></div>
+                            <div class="listing-print d-table w-100 mb-30"><div class="float-left">Posted by..on <?php echo date('d/m/Y') ?> in <span class="text-theme"><?php echo get_field('job_category') ?></span></div><div class="float-right"><button type="button" class="btn btn-print" onclick="printDiv('printThis')"><i class="fa fa-print"></i> Print</button></div></div>  
+                            <div id="printThis">
+                                <h2 class="listing-title text-theme mb-30"><?php echo get_the_title()?></h2> 
+                                <div class="listing-address mb-30"><i class="fa fa-map-marker text-theme"></i> <?php echo get_field('job_address') ?></div>                    
+                                <?php the_content() ?>
+                                <div class="listing-meta">
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Employment Type :</span><span class="float-right"><?php echo get_field('post_type') ?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Email :</span><span class="float-right"><?php echo get_field('job_email')?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Phone :</span><span class="float-right"><?php echo get_field('job_phone')?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Salary :</span><span class="float-right"><?php echo get_field('job_salary')?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Start Date :</span><span class="float-right"><?php echo get_field('job_start_date')?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Experienced Contact :</span><span class="float-right"><?php echo get_field('job_experience')?></span></div>
+                                    <div class="d-table w-100 mb-15"><span class="font-weight-700 float-left">Reference :</span><span class="float-right"><?php echo get_field('job_reference')?></span></div>
+                                </div>
                             </div>
                         <?php endif;?>                        
                     </div>
@@ -42,7 +44,7 @@ do_action( 'action_avobe_content', $page_details );
                             //SELECT DISTINCT `meta_value` FROM `bs_wp_postmeta` WHERE `meta_key`='business_category'
                             $results = $wpdb->get_results( "SELECT DISTINCT meta_value FROM {$wpdb->prefix}postmeta WHERE meta_key='job_category'", OBJECT );
                             foreach($results as $row){
-                                echo '<a href="?category='.$row->meta_value.'" class="btn btn-listing-archive-category font-weight-700">'.$row->meta_value.'</a>';
+                                echo '<a href="'.home_url('/jobs/').'?category='.$row->meta_value.'" class="btn btn-listing-archive-category font-weight-700">'.$row->meta_value.'</a>';
                             }
                             ?>
                         </div>

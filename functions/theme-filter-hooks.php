@@ -55,6 +55,7 @@ function custom_admin_script(){
 mos_add_page('search', 'Search', 'default');
 mos_add_page('listings', 'Listings', 'default');
 mos_add_page('jobs', 'Jobs', 'default');
+mos_add_page('sales', 'Sales', 'default');
 function mos_add_page($page_slug, $page_title, $page_template) {
     $page = get_page_by_path( $page_slug , OBJECT );
     //var_dump($page);

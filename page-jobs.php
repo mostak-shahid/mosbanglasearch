@@ -35,16 +35,20 @@ do_action( 'action_avobe_content', $page_details );
                         if (@$_GET['post_type']) {
                             $args['meta_query']['post_type'] = array(
                                 'key' => 'post_type',
-                                'value' => $_GET['location'],
+                                'value' => $_GET['post_type'],
                                 'compare' => 'LIKE',
                             );
                         }
                         $query = new WP_Query( $args );                        
                         if ( $query->have_posts() ) : ?>
                             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                                <div class="wow fadeInLeft mb-30">
+                                <div class="job-unit wow fadeInLeft mb-30">
                                     <h4 class="listing-title mb-30"><a href="<?php echo get_the_permalink() ?>" class="text-theme"><?php echo get_the_title() ?></a></h4>
                                     <div class="job-meta text-muted mb-30">Experienced Contact : <?php echo get_field('job_experience')?></div>
+                                    <div class="job-meta mb-30"><i class="fa fa-map-marker"></i> <?php echo get_field('job_address')?></div>
+                                    <div class="row mb-30">
+                                        <div class="col-lg-6"><a href="<?php echo get_the_permalink() ?>" class="btn btn-block btn-jon-details bg-theme text-white">View Details</a></div>
+                                    </div>
                                 </div>
                             <?php endwhile; ?>
                             
@@ -80,7 +84,7 @@ do_action( 'action_avobe_content', $page_details );
                             //SELECT DISTINCT `meta_value` FROM `bs_wp_postmeta` WHERE `meta_key`='business_category'
                             $results = $wpdb->get_results( "SELECT DISTINCT meta_value FROM {$wpdb->prefix}postmeta WHERE meta_key='job_category'", OBJECT );
                             foreach($results as $row){
-                                echo '<a href="?category='.$row->meta_value.'" class="btn btn-listing-archive-category font-weight-700">'.$row->meta_value.'</a>';
+                                echo '<a href="'.home_url('/jobs/').'?category='.$row->meta_value.'" class="btn btn-listing-archive-category font-weight-700">'.$row->meta_value.'</a>';
                             }
                             ?>
                         </div>
